@@ -15,5 +15,5 @@ cabal.sandbox.config
 *.hp
 .stack-work/
 
-# intelliJ
+# intelliJ files
 .iml
