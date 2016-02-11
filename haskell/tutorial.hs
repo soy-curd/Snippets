@@ -2,6 +2,28 @@
 
 import Data.Char
 import Data.List
+import qualified Data.Map as Map
+
+-- Person class
+data Person = Person String String Int Float String String
+    deriving (Show)
+
+firstName :: Person -> String
+firstName (Person firstname _ _ _ _ _) = firstname
+
+-- Record syntax
+data Person' = Person' {
+    firstName' :: String
+    , lastName' :: String:q
+} deriving (Show)
+
+-- Shape culculater
+data Shape = Circle Float Float Float | Rectangle Float Float Float Float
+    deriving (Show)
+
+area :: Shape -> Float
+area (Circle _ _ r) = pi * r ^ 2
+area (Rectangle x1 y1 x2 y2) = (abs $ x2 - x1) * (abs $ y2 - y1)
 
 -- findKey
 findKey :: (Eq k) => k -> [(k, v)] -> Maybe v
