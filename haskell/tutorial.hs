@@ -4,6 +4,23 @@ import Data.Char
 import Data.List
 import qualified Data.Map as Map
 
+-- lazy IO
+main = do
+    contents <- getContents
+    putStr $ map toUpper contents
+
+-- hello world
+--main = do
+--    putStrLn "hello"
+--    name <- getLine
+--    if null name
+--        then return ()
+--        else do
+--            putStrLn $ reverseWords name
+--            main
+
+reverseWords = unwords . map reverse . words
+
 -- Person class
 data Person = Person String String Int Float String String
     deriving (Show)
@@ -14,7 +31,7 @@ firstName (Person firstname _ _ _ _ _) = firstname
 -- Record syntax
 data Person' = Person' {
     firstName' :: String
-    , lastName' :: String:q
+    , lastName' :: String
 } deriving (Show)
 
 -- Shape culculater
@@ -35,7 +52,7 @@ findKey key ((k, v): xs)
 -- fold version
 findKey' :: (Eq k) => k -> [(k, v)] -> Maybe v
 findKey' key xs = foldr (\(k, v) acc -> if key == k then Just v else acc) Nothing xs
-main = putStrLn $ show $ findKey' 1 [(1, 2), (2, 3)]
+--main = putStrLn $ show $ findKey' 1 [(1, 2), (2, 3)]
 
 -- find first N from number list
 -- N = "aaa" -> a + a + a
