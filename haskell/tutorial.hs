@@ -6,6 +6,8 @@ import qualified Data.Map as Map
 import qualified Data.ByteString.Lazy as B
 import qualified Data.ByteString as S
 import Control.Applicative
+import Control.Monad
+--import Control.Monad.State
 
 -- lazy IO
 --main = do
@@ -127,3 +129,27 @@ listOfTuples = do
     n <- [1, 2]
     ch <- ['a', 'b']
     return (n, ch)
+
+-- guard
+type KnightPos = (Int, Int)
+
+moveKnight :: KnightPos -> [KnightPos]
+moveKnight (c, r) = do
+    (c', r') <- [(c+2, r-1), (c+2, r+1), (c-2, r-1), (c-2, r+1), (c+1, r-2), (c+1, r+2), (c-1, r-2), (c-1, r+2)]
+    guard (c' `elem` [1..8] && r' `elem` [1..8])
+    return (c', r')
+
+-- state monad
+--type Stack = [Int]
+--
+--pop :: State Stack Int
+--pop = state $ \(x:xs) -> (x, xs)
+--
+--push :: Int -> State Satck ()
+--push a = state $ \xs -> ((), a:xs)
+--
+--stackManip :: State Stack Int
+--stackManip = do
+--    push 3
+--    a <- pop
+--    pop
