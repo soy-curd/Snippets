@@ -1,37 +1,38 @@
 <!doctype html>
 <html ng-app="app">
-  <head>
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-  </head>
-  <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-      <p>{{1 + 1}}</p>
-      <div ng-init="variables=[1, 2, 3]" ng-if="yourName">
-        <li ng-repeat="variable in variables">
-        <p>{{variable}}</p>
-      </li>
+<head>
+    <script src="build/bundle.js"></script>
+</head>
+<body>
+<div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <hr>
+    <h1>Hello {{yourName}}!</h1>
+    <p>{{1 + 1}}</p>
+    <div ng-init="variables=[1, 2, 3]" ng-if="yourName">
+        <ul>
+            <li ng-repeat="variable in variables">
+                <p>{{variable}}</p>
+            </li>
+        </ul>
     </div>
-      <input type="text" ng-model="hoge" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{hoge}}!</h1>
+    <input type="text" ng-model="hoge" placeholder="Enter a name here">
+    <hr>
+    <h1>Hello {{hoge}}!</h1>
+</div>
+<div ng-controller="MyController as myCtrl">
+    <div ng-cloak>
+        {{myCtrl.message}}
+        {{myCtrl.hoge}}
+        <p ng-bind="myCtrl.hoge"></p>
     </div>
-    <div ng-controller="MyController">
-      <div ng-cloak>
-      {{message}}
-      {{hoge}}
-      <p ng-bind="hoge"></p>
-      </div>
-      <button ng-click="action($event)">push</button>
-      
-    </div>
-    <input type="checkbox" ng-model="check">
-    <div ng-if="check">
-      ふが
-    </div>
-  </body>
+    <button ng-click="myCtrl.action($event)">push</button>
+
+</div>
+<input type="checkbox" ng-model="check">
+<div ng-if="check">
+    ふが
+</div>
+</body>
 </html>
