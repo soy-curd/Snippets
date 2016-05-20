@@ -28,8 +28,20 @@
         <p ng-bind="myCtrl.hoge"></p>
     </div>
     <button ng-click="myCtrl.action($event)">push</button>
+    <button ng-click="myCtrl.wait(1000)">wait</button>
 
 </div>
+<div ng-controller="scopeController as this">
+    {{this}}
+    {{this.test}}
+    {{this.rootTest}}
+</div>
+<div ng-controller="scopeController2 as this2">
+    {{this2}}
+    {{this2.test}}
+    {{this2.rootTest}}
+</div>
+
 <input type="checkbox" ng-model="check">
 <div ng-if="check">
     ふが
