@@ -10,5 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.5"
-  }
+  },
+  "devDependencies": {}
 }

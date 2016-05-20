@@ -1,14 +1,7 @@
 /// <reference path="../typings/tsd.d.ts"/>
 
-export class MyService {
-    constructor() {
-    }
+import {IMyService} from "../services/myService";
 
-    public static addService(a, b) {
-        console.log(a);
-        return a + b + 10000;
-    }
-}
 
 // コントローラ定義
 // コントローラの役割はスコープのsetup
@@ -17,12 +10,14 @@ export class MyController {
     public hoge: number;
     public $interval: angular.IIntervalService;
     public $location: angular.ILocationService;
+    public myService: IMyService;
 
-    constructor($interval, $location, addService) {
+    constructor($interval, $location, addService, myService) {
         this.init(addService);
         this.$interval = $interval;
         this.$location = $location;
         console.log(this.$location);
+        this.myService = myService;
 
     }
 
@@ -46,6 +41,15 @@ export class MyController {
         this.$interval(() => {
             console.log(_num--);
         }, num);
+    }
+
+    public callService() {
+        this.message = this.myService.getResponse();
+    }
+
+
+    public resolveCallback(msg, func) {
+        func(msg);
     }
 }
 

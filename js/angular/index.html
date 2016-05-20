@@ -29,6 +29,7 @@
     </div>
     <button ng-click="myCtrl.action($event)">push</button>
     <button ng-click="myCtrl.wait(1000)">wait</button>
+    <button ng-click="myCtrl.callService()">http</button>
 
 </div>
 <div ng-controller="scopeController as this">
@@ -46,5 +47,10 @@
 <div ng-if="check">
     ふが
 </div>
+<div ng-init="statuses = ['open', 'close']"></div>
+<combo-box selected-item="status" all-items="statuses"></combo-box>
+
+
+<my-app></my-app>
 </body>
 </html>
