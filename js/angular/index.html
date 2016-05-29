@@ -5,51 +5,51 @@
     <script src="build/bundle.js"></script>
 </head>
 <body>
-<div>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
-    <p>{{1 + 1}}</p>
-    <div ng-init="variables=[1, 2, 3]" ng-if="yourName">
-        <ul>
-            <li ng-repeat="variable in variables">
-                <p>{{variable}}</p>
-            </li>
-        </ul>
-    </div>
-    <input type="text" ng-model="hoge" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{hoge}}!</h1>
-</div>
-<div ng-controller="MyController as myCtrl">
-    <div ng-cloak>
-        {{myCtrl.message}}
-        {{myCtrl.hoge}}
-        <p ng-bind="myCtrl.hoge"></p>
-    </div>
-    <button ng-click="myCtrl.action($event)">push</button>
-    <button ng-click="myCtrl.wait(1000)">wait</button>
-    <button ng-click="myCtrl.callService()">http</button>
+<!--<div>-->
+<!--<label>Name:</label>-->
+<!--<input type="text" ng-model="yourName" placeholder="Enter a name here">-->
+<!--<hr>-->
+<!--<h1>Hello {{yourName}}!</h1>-->
+<!--<p>{{1 + 1}}</p>-->
+<!--<div ng-init="variables=[1, 2, 3]" ng-if="yourName">-->
+<!--<ul>-->
+<!--<li ng-repeat="variable in variables">-->
+<!--<p>{{variable}}</p>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--<input type="text" ng-model="hoge" placeholder="Enter a name here">-->
+<!--<hr>-->
+<!--<h1>Hello {{hoge}}!</h1>-->
+<!--</div>-->
+<!--<div ng-controller="MyController as myCtrl">-->
+<!--<div ng-cloak>-->
+<!--{{myCtrl.message}}-->
+<!--{{myCtrl.hoge}}-->
+<!--<p ng-bind="myCtrl.hoge"></p>-->
+<!--</div>-->
+<!--<button ng-click="myCtrl.action($event)">push</button>-->
+<!--<button ng-click="myCtrl.wait(1000)">wait</button>-->
+<!--<button ng-click="myCtrl.callService()">http</button>-->
 
-</div>
-<div ng-controller="scopeController as this">
-    {{this}}
-    {{this.test}}
-    {{this.rootTest}}
-</div>
-<div ng-controller="scopeController2 as this2">
-    {{this2}}
-    {{this2.test}}
-    {{this2.rootTest}}
-</div>
+<!--</div>-->
+<!--<div ng-controller="scopeController as this">-->
+<!--{{this}}-->
+<!--{{this.test}}-->
+<!--{{this.rootTest}}-->
+<!--</div>-->
+<!--<div ng-controller="scopeController2 as this2">-->
+<!--{{this2}}-->
+<!--{{this2.test}}-->
+<!--{{this2.rootTest}}-->
+<!--</div>-->
 
-<input type="checkbox" ng-model="check">
-<div ng-if="check">
-    ふが
-</div>
-<div ng-init="statuses = ['open', 'close']"></div>
-<combo-box selected-item="status" all-items="statuses"></combo-box>
+<!--<input type="checkbox" ng-model="check">-->
+<!--<div ng-if="check">-->
+<!--ふが-->
+<!--</div>-->
+<!--<div ng-init="statuses = ['open', 'close']"></div>-->
+<!--<combo-box selected-item="status" all-items="statuses"></combo-box>-->
 
 
 <my-app></my-app>

@@ -6,10 +6,11 @@
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" \"npm run webpack:w\"",
     "lite": "lite-server",
-    "postinstall": "typings install",
+    "postinstall": "tsd install",
     "webpack:w": "webpack",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
+    "tsd": "tsd",
     "typings": "typings"
   },
   "author": "",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "concurrently": "^2.1.0",
     "lite-server": "^2.2.0",
+    "tsd": "^0.6.5",
     "typings": "^1.0.4",
     "webpack": "^1.13.1"
   }

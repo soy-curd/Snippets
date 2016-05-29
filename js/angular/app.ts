@@ -4,7 +4,7 @@ import * as angular from "angular";
 import {MyController, ScopeController, ScopeController2} from "./controller/myController";
 import {MyService} from "./services/myService";
 import {ComboBox} from "./components/myDirective";
-import {MyAppCtrl, GreetingCtrl, CounterCtrl} from "./components/myComponent";
+import {MyAppComponent, CounterComponent} from "./components/myComponent";
 
 // モジュール定義
 // angular.module(name, [requires], [configFn])
@@ -23,31 +23,6 @@ appModule.controller("scopeController2", ["$rootScope", ScopeController2]);
 //appModule.directive("myDirective", [MyDirective]);
 appModule.directive("comboBox", [() => new ComboBox()]);
 
-appModule.component("myApp", {
-    //template: `<greeting name="'World'"></greeting>`,
-    template: `<counter count="0"></counter>`,
-    controller: MyAppCtrl
-});
-
-appModule.component("greeting", {
-    bindings: {
-        name: "="
-    },
-    template: `<h1>Hello {{$ctrl.upperName}}!</h1>`,
-    controller: GreetingCtrl
-});
-
-appModule.component("counter", {
-    bindings: {
-        count: "<"  // データフローの決定
-    },
-    controller: CounterCtrl,
-    template: [
-        '<div class="todo">',
-        '<input type="text" ng-model="$ctrl.count">',
-        '<button type="button" ng-click="$ctrl.dec();">-</button>',
-        '<button type="button" ng-click="$ctrl.inc();">+</button>',
-        '{{$ctrl.count}}',
-        '</div>'
-    ].join('')
-});
+// コンポーネント定義
+appModule.component("myApp", new MyAppCtrl());
+appModule.component("counter", new CounterComponent());
