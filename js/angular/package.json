@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" \"npm run webpack:w\"",
     "lite": "lite-server",
     "postinstall": "tsd install",
-    "webpack:w": "webpack",
+    "webpack:w": "webpack -w",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "tsd": "tsd",

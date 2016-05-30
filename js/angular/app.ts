@@ -4,7 +4,7 @@ import * as angular from "angular";
 import {MyController, ScopeController, ScopeController2} from "./controller/myController";
 import {MyService} from "./services/myService";
 import {ComboBox} from "./components/myDirective";
-import {MyAppComponent, CounterComponent} from "./components/myComponent";
+import {MyAppComponent, CounterComponent, PaneComponent} from "./components/myComponent";
 
 // モジュール定義
 // angular.module(name, [requires], [configFn])
@@ -24,5 +24,6 @@ appModule.controller("scopeController2", ["$rootScope", ScopeController2]);
 appModule.directive("comboBox", [() => new ComboBox()]);
 
 // コンポーネント定義
-appModule.component("myApp", new MyAppCtrl());
+appModule.component("myApp", new MyAppComponent());
 appModule.component("counter", new CounterComponent());
+appModule.component("myPane", new PaneComponent());
