@@ -24,3 +24,4 @@ cabal.sandbox.config
 
 # intelliJ files
 .iml
+.idea/
