@@ -61,3 +61,36 @@ itr12 = itertools.combinations_with_replacement([1, 2, 3, 4], 3)
 
 itr13 = itertools.accumulate([1, 2, 3, 4, 5, 6])
 [print(i) for i in itr13]
+
+# "A", "AB", "BC" ... ととりたい
+# -> 開始と終了インデックスのcombinationを取る
+text = "ABCDE"
+itr14 = itertools.combinations(range(len(text) + 1), 2)
+[print(text[s: e]) for s, e in itr14]
+
+
+# meta
+def func1(self, args):
+    return args
+
+
+def func2(self, args):
+    return args + 50
+
+
+Hoge = type("Hoge", (object,), {"function1": func1, "function2": func2})
+hoge = Hoge()
+print(hoge.function2(10))
+
+
+class MetaClass(type):
+    def __setattr__(cls, name, value):
+        super(MetaClass, cls).__setattr__(name, value)
+        print("set {} and {}.".format(name, value))
+
+
+class Fuga(Hoge, metaclass=MetaClass):
+    pass
+
+
+Fuga.test = 22
