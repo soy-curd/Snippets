@@ -1,0 +1,9 @@
+cpphs 
+ghcjs
+ghcjs-pkg
+greencard
+hmake
+jhc
+lhc
+lhc-pkg
+uhc

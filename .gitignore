@@ -1,9 +1,19 @@
+.DS_Store
+*.log
+
+#python
+python/paiza/*
+
+#go
+golang/paiza/*
+
+# js
 node_module
 typings
 
 # c
 a.out
-a.cout*
+a.out*
 
 # haskell
 dist
@@ -25,6 +35,8 @@ cabal.sandbox.config
 
 # scala
 *.class
+scala/paiza/*
+scala/target/**/*
 
 # intelliJ files
 .iml
