@@ -1,6 +1,10 @@
 node_module
 typings
 
+# c
+a.out
+a.cout*
+
 # haskell
 dist
 cabal-dev
