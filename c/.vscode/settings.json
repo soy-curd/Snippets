@@ -6,7 +6,8 @@
     "stack": "cpp",
     "istream": "cpp",
     "string": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "utility": "cpp"
   },
   "git.ignoreLimitWarning": true
 }
