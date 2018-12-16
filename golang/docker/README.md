@@ -29,7 +29,6 @@ tcpdump
 
 その状態で、ホストのブラウザから`localhost:8080`にアクセスすると、
 
-
 ```
 14:27:54.931554 IP 172.17.0.1.54756 > f28f8f2283f7.80: Flags [S], seq 3360679968, win 29200, options [mss 1460,sackOK,TS val 7144624 ecr 0,nop,wscale 7], length 0
 14:27:54.931620 IP f28f8f2283f7.80 > 172.17.0.1.54756: Flags [R.], seq 0, ack 3360679969, win 0, length 0
@@ -55,13 +54,23 @@ Flags [S] がSYN（コネクション確立要求）、[R.]がRST（コネクシ
 ```
 PがPUSH（受信したデータをすぐに上位のアプリケーションに渡す）ですので、3way ハンドシェイクの後に、データが送られていることがわかります。
 
+ここで、ホストOSから `docker network inspect bridge` コマンドを実行してみましょう。すると、`172.17.0.1`というipアドレスがGatewayとして設定されていることがわかります。
 
+## おまけ
+docker for macでは内部的にはvmがホストとして使われています。
+nsenterというツールを用いることで、このvmにアクセスすることができます。
 
+```
+docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
+```
+
+ここでifconfigコマンドを実行すると、 `docker0` という仮想ブリッジにipアドレス172.17.0.1が設定されていることが確認できます。また、 `brctl show`　コマンドで、インターフェースに `vethxxxxxx` が割り当てられていることがわかります。dockerのBridgeモードでは、これらを経由してコンテナとの通信が行われます。
 
 ## 参考
 + http://blog.livedoor.jp/sonots/archives/34703829.html
 + https://qiita.com/keikmobile/items/93cf6dc5b95019c6a442
-
++ https://gist.github.com/BretFisher/5e1a0c7bcca4c735e716abf62afad389
++ https://dev.classmethod.jp/server-side/docker-server-side/examine-bridge-mode-of-docker-for-mac/
 
 ## build image
 ```
