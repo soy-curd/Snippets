@@ -56,6 +56,22 @@ PがPUSH（受信したデータをすぐに上位のアプリケーションに
 
 ここで、ホストOSから `docker network inspect bridge` コマンドを実行してみましょう。すると、`172.17.0.1`というipアドレスがGatewayとして設定されていることがわかります。
 
+
+## iptableの確認
+
+--privilegedフラグをつけて起動します。
+```
+docker run --net dns --privileged --name hoge -it -d -p 8080:80 tcp
+
+```
+
+その後、apkコマンドでiptablesを追加して、実行することができます。
+
+```
+apk add iptables
+iptables -t nat -L -n
+```
+
 ## おまけ
 docker for macでは内部的にはvmがホストとして使われています。
 nsenterというツールを用いることで、このvmにアクセスすることができます。
